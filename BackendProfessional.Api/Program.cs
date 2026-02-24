@@ -22,6 +22,26 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => { opti
 
 var app = builder.Build();
 
+// * Seeder para usuario admin y normal
+using (var scope = app.Services.CreateAsyncScope())
+{
+    var sp = scope.ServiceProvider;
+
+    try
+    {
+        var adminEmail = builder.Configuration["Seed:AdminEmail"] ?? "admin@local.test";
+        var adminPassword = builder.Configuration["Seed:AdminPassword"] ?? "P@ssw0rd123!";
+        await IdentityDataSeeder
+            .SeedAsync(sp, adminEmail, adminPassword);
+    }
+    catch (Exception ex)
+    {
+        var logger = sp.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Error ejecutando el seeder de Identity.");
+        // no lanzamos para que app intente continuar; revisa logs si falla.
+    }
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
