@@ -1,0 +1,79 @@
+
+# Ignore build outputs
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# NuGet
+*.nupkg
+# NuGet fallback folders
+packages/
+.nuget/packages/
+
+# Dotnet publish
+publish/
+*.Publish.xml
+
+# Runtime files
+*.runtimeconfig.json
+*.deps.json
+
+# Test results
+TestResults/
+*.trx
+
+# Logs
+logs/
+*.log
+
+# Database files
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# JetBrains Rider caches
+.idea/
+.idea/*
+
+# Docker
+docker-compose.override.yml
+**/docker-compose.override.yml
+Dockerfile*
+docker-compose*.yml
+
+# Ignore publish artifacts and temp files
+artifacts/
+temp*/
+
+# Ignore Rider/IDE workspace and user files
+*.iml
+
+# Optional: ignore local development configuration files (uncomment if desired)
+# **/appsettings.Development.json
+# **/appsettings.Local.json
+
+# End of .gitignore
