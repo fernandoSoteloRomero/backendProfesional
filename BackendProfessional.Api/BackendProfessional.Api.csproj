@@ -23,4 +23,8 @@
     <ProjectReference Include="..\BackendProfessional.Infrastructure\BackendProfessional.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers/" />
+  </ItemGroup>
+
 </Project>

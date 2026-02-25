@@ -11,6 +11,9 @@ public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, 
   {
   }
 
+  public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
+  public DbSet<AuditLog> AuditLogs { get; set; } = null!;
+
   protected override void OnModelCreating(ModelBuilder builder)
   {
     base.OnModelCreating(builder);
@@ -20,5 +23,8 @@ public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, 
       b.Property(u => u.DisplayName).HasMaxLength(200);
       b.Property(u => u.IsActive).HasDefaultValue(true);
     });
+
+    // * configuracion existente para applicationUser
+    builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
   }
 }
